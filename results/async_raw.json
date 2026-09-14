@@ -1,0 +1,53 @@
+{
+  "reps": 5,
+  "rows": [
+    {
+      "workload": "spawn",
+      "n": 50000,
+      "loop": "asyncio",
+      "layer": "raw",
+      "min_ms": 126.59,
+      "per_op_us": 2.532
+    },
+    {
+      "workload": "spawn",
+      "n": 50000,
+      "loop": "uvloop",
+      "layer": "raw",
+      "min_ms": 92.71,
+      "per_op_us": 1.854
+    },
+    {
+      "workload": "yield",
+      "n": 200000,
+      "loop": "asyncio",
+      "layer": "raw",
+      "min_ms": 2780.88,
+      "per_op_us": 13.904
+    },
+    {
+      "workload": "yield",
+      "n": 200000,
+      "loop": "uvloop",
+      "layer": "raw",
+      "min_ms": 2595.87,
+      "per_op_us": 12.979
+    },
+    {
+      "workload": "echo",
+      "n": 5000,
+      "loop": "asyncio",
+      "layer": "raw",
+      "min_ms": 229.7,
+      "per_op_us": 45.941
+    },
+    {
+      "workload": "echo",
+      "n": 5000,
+      "loop": "uvloop",
+      "layer": "raw",
+      "min_ms": 119.76,
+      "per_op_us": 23.952
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "reps": 5,
+  "rows": [
+    {
+      "workload": "spawn",
+      "n": 50000,
+      "backend": "asyncio",
+      "min_ms": 756.6,
+      "median_ms": 813.35,
+      "per_op_us": 15.132,
+      "error": null
+    },
+    {
+      "workload": "spawn",
+      "n": 50000,
+      "backend": "uvloop",
+      "min_ms": 654.22,
+      "median_ms": 704.08,
+      "per_op_us": 13.084,
+      "error": null
+    },
+    {
+      "workload": "spawn",
+      "n": 50000,
+      "backend": "trio",
+      "min_ms": 693.43,
+      "median_ms": 714.33,
+      "per_op_us": 13.869,
+      "error": null
+    },
+    {
+      "workload": "yield",
+      "n": 200000,
+      "backend": "asyncio",
+      "min_ms": 2922.23,
+      "median_ms": 2980.99,
+      "per_op_us": 14.611,
+      "error": null
+    },
+    {
+      "workload": "yield",
+      "n": 200000,
+      "backend": "uvloop",
+      "min_ms": 2691.82,
+      "median_ms": 2715.52,
+      "per_op_us": 13.459,
+      "error": null
+    },
+    {
+      "workload": "yield",
+      "n": 200000,
+      "backend": "trio",
+      "min_ms": 3179.34,
+      "median_ms": 3219.8,
+      "per_op_us": 15.897,
+      "error": null
+    },
+    {
+      "workload": "echo",
+      "n": 5000,
+      "backend": "asyncio",
+      "min_ms": 537.5,
+      "median_ms": 543.03,
+      "per_op_us": 107.499,
+      "error": null
+    },
+    {
+      "workload": "echo",
+      "n": 5000,
+      "backend": "uvloop",
+      "min_ms": 349.93,
+      "median_ms": 366.42,
+      "per_op_us": 69.987,
+      "error": null
+    },
+    {
+      "workload": "echo",
+      "n": 5000,
+      "backend": "trio",
+      "min_ms": 354.95,
+      "median_ms": 360.83,
+      "per_op_us": 70.989,
+      "error": null
+    }
+  ]
+}
