@@ -6,48 +6,48 @@
       "n": 50000,
       "loop": "asyncio",
       "layer": "raw",
-      "min_ms": 123.88,
-      "per_op_us": 2.478
+      "min_ms": 126.59,
+      "per_op_us": 2.532
     },
     {
       "workload": "spawn",
       "n": 50000,
       "loop": "uvloop",
       "layer": "raw",
-      "min_ms": 91.37,
-      "per_op_us": 1.827
+      "min_ms": 92.71,
+      "per_op_us": 1.854
     },
     {
       "workload": "yield",
       "n": 200000,
       "loop": "asyncio",
       "layer": "raw",
-      "min_ms": 2744.42,
-      "per_op_us": 13.722
+      "min_ms": 2780.88,
+      "per_op_us": 13.904
     },
     {
       "workload": "yield",
       "n": 200000,
       "loop": "uvloop",
       "layer": "raw",
-      "min_ms": 2532.12,
-      "per_op_us": 12.661
+      "min_ms": 2595.87,
+      "per_op_us": 12.979
     },
     {
       "workload": "echo",
       "n": 5000,
       "loop": "asyncio",
       "layer": "raw",
-      "min_ms": 289.78,
-      "per_op_us": 57.956
+      "min_ms": 229.7,
+      "per_op_us": 45.941
     },
     {
       "workload": "echo",
       "n": 5000,
       "loop": "uvloop",
       "layer": "raw",
-      "min_ms": 124.48,
-      "per_op_us": 24.895
+      "min_ms": 119.76,
+      "per_op_us": 23.952
     }
   ]
 }

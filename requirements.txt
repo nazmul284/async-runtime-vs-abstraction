@@ -1,11 +1,6 @@
-ruff==0.16.7
-black==26.5.1
-flake8==7.3.0
-isort==9.0.1
-mypy==2.3.1
-ty==0.0.80
+# Exactly what this benchmark needs, pinned to what was measured.
+# An earlier version of this file was a shared list carrying ruff, black, flake8,
+# isort, mypy, ty, structlog and loguru - none of which this benchmark imports.
 uvloop==0.22.1
 trio==0.34.0
 anyio==4.15.1
-structlog==26.1.0
-loguru==0.7.3

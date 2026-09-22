@@ -8,8 +8,13 @@ through anyio, then the abstraction is the thing being measured, not the loop.
 from __future__ import annotations
 import json, pathlib, statistics, subprocess, sys
 
-ROOT = pathlib.Path(__file__).resolve().parent
-PY = str(ROOT / ".venv" / "bin" / "python")
+# Repo root, not bench/. An earlier version resolved to bench/, so it looked for
+# bench/.venv/bin/python and wrote to bench/results/ - neither of which exists if
+# you follow the README. Every subprocess failed and the run produced no rows.
+ROOT = pathlib.Path(__file__).resolve().parent.parent
+# The interpreter running this script, so `.venv/bin/python bench/bench_async.py`
+# measures the venv you just built rather than a path guessed from __file__.
+PY = sys.executable
 REPS, WARMUP = 5, 1
 
 SRC = r'''

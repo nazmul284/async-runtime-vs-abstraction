@@ -73,9 +73,40 @@ Running through anyio, trio matches uvloop on I/O without any C extension.
 ```bash
 uv venv --python 3.14 .venv
 uv pip install --python .venv/bin/python -r requirements.txt
-.venv/bin/python bench/bench_async.py
-.venv/bin/python bench/bench_async_raw.py
-python3 bench/tables.py
+.venv/bin/python bench/bench_async.py        # three backends through anyio
+.venv/bin/python bench/bench_async_raw.py    # raw control, no anyio
+.venv/bin/python bench/tables.py             # the tables used in the article
 ```
+
+## Reproducibility
+
+The whole thing was re-run on **2026-09-22**, eight days after the first run, on the
+same machine with the same pinned versions. Both snapshots are committed:
+
+```bash
+.venv/bin/python bench/compare_runs.py results/runs/2026-09-14 results/runs/2026-09-22
+```
+
+Eleven of twelve cells moved by less than 5%. One did not:
+
+```
+workload  loop        2026-09-14  2026-09-22    drift
+-----------------------------------------------------
+echo      asyncio          45.94       57.96   +26.2%  <-- unstable
+echo      uvloop           23.95       24.89    +3.9%
+spawn     asyncio           2.53        2.48    -2.1%
+spawn     uvloop            1.85        1.83    -1.5%
+yield     asyncio          13.90       13.72    -1.3%
+yield     uvloop           12.98       12.66    -2.5%
+```
+
+So raw asyncio's TCP figure should be read as a range, roughly 46-58 us/op, not as a
+number. uvloop's I/O advantage is correspondingly a range: **1.9x to 2.3x**, not 1.92x.
+
+Everything the article argues survives the re-run. The layer-versus-loop ratio was 18.5x
+on the first run and 17.1x on the second. And through anyio, trio came in 1% *behind*
+uvloop on TCP the first time and 4% *ahead* the second, which is the useful result: on
+this workload the two are indistinguishable, and quoting either direction as a win would
+be over-reading the data.
 
 MIT.
